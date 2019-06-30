@@ -131,7 +131,8 @@ a {
     cursor: pointer; }
     .header__content-right:hover .header__button-link {
       color: #f16d7f;
-      background-color: #fff; }
+      background-color: #fff;
+      outline: solid 2px #f16d7f; }
   .header__cart-img {
     display: block;
     height: 37px;
@@ -163,7 +164,8 @@ a {
   position: absolute;
   top: 82px;
   left: -28px;
-  cursor: default; }
+  cursor: default;
+  z-index: 1; }
   .drop-cart:before {
     content: "";
     width: 11px;
