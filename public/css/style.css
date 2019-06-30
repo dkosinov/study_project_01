@@ -129,8 +129,6 @@ a {
     align-items: center;
     position: relative;
     cursor: pointer; }
-    .header__content-right:hover .header__drop-cart {
-      display: block; }
     .header__content-right:hover .header__button-link {
       color: #f16d7f;
       background-color: #fff; }
@@ -147,9 +145,11 @@ a {
     letter-spacing: 0.38px;
     line-height: 38px;
     padding: 0 19px 0 19px;
+    border: none;
     outline: solid 2px #f16d7f;
     display: flex;
-    transition: all ease-in-out 0.4s; }
+    transition: all ease-in-out 0.4s;
+    cursor: pointer; }
     .header__button-link:after {
       content: "▾";
       font-size: 24px;
@@ -160,7 +160,6 @@ a {
   border: 1px solid #ececec;
   background-color: #ffffff;
   padding: 0 20px 12px;
-  display: none;
   position: absolute;
   top: 82px;
   left: -28px;
