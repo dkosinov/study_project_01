@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/dkosinov/study_project_01/issues"
   },
-  "homepage": "https://github.com/dkosinov/study_project_01#readme"
+  "homepage": "https://github.com/dkosinov/study_project_01#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "moment": "^2.24.0"
+  }
 }
