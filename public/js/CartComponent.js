@@ -26,10 +26,23 @@ Vue.component('cart', {
                         }
                     })
             }
-
         },
         remove(product){
-            //
+            if(product.quantity > 1){
+                this.$parent.putJson(`/api/cart/${product.id_product}`, {quantity: -1})
+                    .then(data => {
+                        if(data.result){
+                            product.quantity--;
+                        }
+                    })
+            } else {
+                this.$parent.deleteJson(`/api/cart/${product.id_product}`, {quantity: -1})
+                    .then(data => {
+                        if(data.result){
+                            this.cartItems.splice(this.cartItems.indexOf(product), 1);
+                        }
+                    })
+            }
         },
         getCartTotalSum () {
             let totalSum = 0;
@@ -76,7 +89,7 @@ Vue.component('cart-item', {
             for (var j = 0; j < maxRating; j++) {
                 if (j < rating) {
                     ratingHTML += '<div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>\n'
-                    //если пустые звёздочки должны отображатьса, то раскоментить
+                    //если пустые звёздочки должны отображатьса, то раскоментить (НЕ РАБОТАЕТ!!!)
                     } else {
                         ratingHTML += '<div class="stars__star"><i class="fas fa-star"></i></div>\n'
                 }
@@ -107,7 +120,7 @@ Vue.component('cart-item', {
                     </div>
                     <div class="cart__product-action">
                         <a href="#" class="cart__product-action-link">
-                            <i class="fas fa-times-circle"></i>
+                            <i class="fas fa-times-circle" @click="$parent.remove(cartItem)"></i>
                         </a>
                     </div>
                 </div>`

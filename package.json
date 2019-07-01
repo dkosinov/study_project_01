@@ -10,6 +10,9 @@
     "type": "git",
     "url": "git+https://github.com/dkosinov/study_project_01.git"
   },
+  "nodemonConfig" : {
+    "ignore": ["*.json"]
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
