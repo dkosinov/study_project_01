@@ -163,7 +163,7 @@ a {
   padding: 0 20px 12px;
   position: absolute;
   top: 82px;
-  left: -28px;
+  right: 0;
   cursor: default;
   z-index: 1; }
   .drop-cart:before {
@@ -908,9 +908,6 @@ a {
   flex-wrap: wrap;
   justify-content: space-between; }
 
-.breadcrumb-catalog-margin-block {
-  height: 60px; }
-
 .spoiler-nav__box {
   margin-bottom: 18px; }
   .spoiler-nav__box[open] .spoiler-nav__title::after {
@@ -967,7 +964,8 @@ a {
 
 .catalog {
   display: flex;
-  justify-content: space-between; }
+  justify-content: space-between;
+  margin-top: 60px; }
   .catalog__spoiler-nav {
     width: 243px; }
   .catalog__container {
