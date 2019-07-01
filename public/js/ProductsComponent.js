@@ -37,21 +37,21 @@ Vue.component('products', {
 
 Vue.component('product', {
     props: ['product'],
-    methods: {
-        getProductRatingHTML(rating) {
-            let ratingHTML = '';
-            const maxRating = 5;
-            for (var j = 0; j < maxRating; j++) {
-                if (j < rating) {
-                    ratingHTML += '<div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>\n'
-                    //если пустые звёздочки должны отображатьса, то раскоментить
-                } else {
-                    ratingHTML += '<div class="stars__star"><i class="fas fa-star"></i></div>\n'
-                }
-            }
-            return ratingHTML;
-        },
-    },
+    // methods: {
+    //     getProductRatingHTML(rating) {
+    //         let ratingHTML = '';
+    //         const maxRating = 5;
+    //         for (var j = 0; j < maxRating; j++) {
+    //             if (j < rating) {
+    //                 ratingHTML += '<div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>\n'
+    //                 //если пустые звёздочки должны отображатьса, то раскоментить
+    //             } else {
+    //                 ratingHTML += '<div class="stars__star"><i class="fas fa-star"></i></div>\n'
+    //             }
+    //         }
+    //         return ratingHTML;
+    //     },
+    // },
     template: `<div class="product-mini">
                     <a class="product-mini__link" href="#">
                         <img class="product-mini__img" :src="product.imgM" :alt="'img'+product.name">
@@ -60,7 +60,7 @@ Vue.component('product', {
                         {{product.name}}
                     </a>
                         <p class="product-mini__price"> $ {{product.price.toFixed(2)}} </p>
-                        <div class="product-mini__stars stars" v-html="getProductRatingHTML(product.rating)"></div>
+                        <div class="product-mini__stars stars" v-html="$root.getProductRatingHTML(product.rating)"></div>
                     </div>
                     <a href="#" class="add-to-cart-1 add-to-cart" @click="$root.$refs.cart.addProduct(product)">
                         <img class="add-to-cart__img" src="img/cart-2.svg" alt="cart">

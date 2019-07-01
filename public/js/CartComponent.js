@@ -83,19 +83,6 @@ Vue.component('cart', {
 Vue.component('cart-item', {
     props: ['cartItem'],
     methods: {
-        getProductRatingHTML(rating) {
-            let ratingHTML = '';
-            const maxRating = 5;
-            for (var j = 0; j < maxRating; j++) {
-                if (j < rating) {
-                    ratingHTML += '<div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>\n'
-                    //если пустые звёздочки должны отображатьса, то раскоментить (НЕ РАБОТАЕТ!!!)
-                    } else {
-                        ratingHTML += '<div class="stars__star"><i class="fas fa-star"></i></div>\n'
-                }
-            }
-            return ratingHTML;
-        },
         getItemTotalSum(){
             //вернём стоимость всех единиц данного товара
             return this.cartItem.price * this.cartItem.quantity;
@@ -109,7 +96,7 @@ Vue.component('cart-item', {
                         <div class="cart__product-text">
                             <div class="cart__product-name">Rebox Zane</div>
                             <div class="drop-cart__product-stars cart__product-stars stars"
-                                v-html="getProductRatingHTML(cartItem.rating)">
+                                v-html="$root.getProductRatingHTML(cartItem.rating)">
                             </div>
                             <div class="drop-cart__product-quantity-price">
                                 {{cartItem.quantity}}

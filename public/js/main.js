@@ -40,5 +40,18 @@ const app = new Vue({
                 .then(result => result.json())
             // .catch(error => this.$refs.error.setText(error));
         },
+        getProductRatingHTML(rating) {
+            let ratingHTML = '';
+            const maxRating = 5;
+            for (var j = 0; j < maxRating; j++) {
+                if (j < rating) {
+                    ratingHTML += '<div class="stars__star stars__star_active"><i class="fas fa-star"></i></div>\n'
+                    //если пустые звёздочки должны отображатьса, то раскоментить (НЕ РАБОТАЕТ!!!)
+                } else {
+                    ratingHTML += '<div class="stars__star"><i class="fas fa-star"></i></div>\n'
+                }
+            }
+            return ratingHTML;
+        },
     }
 })
