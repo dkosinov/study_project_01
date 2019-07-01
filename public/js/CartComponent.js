@@ -126,4 +126,4 @@ Vue.component('cart-item', {
         //             <button class="del-btn" @click="$emit('remove', cartItem)">&times;</button>
         //         </div>
         //     </div>`
-})
+});
