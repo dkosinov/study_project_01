@@ -18,5 +18,5 @@ let remove = (cart, req) => {
 module.exports = {
     add,
     change,
-    remove
+    removeOneProduct: remove
 }

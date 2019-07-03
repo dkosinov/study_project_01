@@ -189,7 +189,6 @@ Vue.component('product', {
     props: ['product', 'productType'],
 
     template: `<div class="product-mini">
-                    {{productType}}
                     <a class="product-mini__link" href="#">
                         <img class="product-mini__img" :src="product.imgM" :alt="'img'+product.name">
                     </a>
@@ -202,7 +201,7 @@ Vue.component('product', {
                     
                     <!--отображаем первый вариант отрисовки кнопок товара-->
                     <span v-if="productType === 1">
-                        <a href="#" class="add-to-cart-1 add-to-cart" @click="$root.$refs.cart.addProduct(product)">
+                        <a href="#" class="add-to-cart-1 add-to-cart" @click="$root.$refs.cart.addOneProduct(product)">
                             <img class="add-to-cart__img" src="img/cart-2.svg" alt="cart">
                             Add to Cart
                         </a>
@@ -211,7 +210,7 @@ Vue.component('product', {
                     <!--отображаем второй вариант отрисовки кнопок товара-->
                     <span v-if="productType === 2">
                         <div class="add-to-cart add-to-cart_mod-3">
-                            <a href="#" class="add-to-cart_mod-3__button add-to-cart_mod-3__button_big" @click="$root.$refs.cart.addProduct(product)"><img
+                            <a href="#" class="add-to-cart_mod-3__button add-to-cart_mod-3__button_big" @click="$root.$refs.cart.addOneProduct(product)"><img
                                     class="add-to-cart_mod-3__img" src="img/cart-2.svg" alt="catr">Add to Cart</a>
                             <a href="#" class="add-to-cart_mod-3__button"><img class="add-to-cart_mod-3__img"
                                                                                src="img/recicle.svg" alt="recicle"></a>
