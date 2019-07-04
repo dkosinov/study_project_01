@@ -769,7 +769,8 @@ a {
   text-align: center; }
   .product__slider-link-box:hover {
     background-color: #ffffff;
-    color: #d8d8d8; }
+    color: #d8d8d8;
+    cursor: pointer; }
 .product__description {
   height: 730px;
   outline: 1px solid #eaeaea;
@@ -1092,9 +1093,6 @@ a {
       border: 1px solid #f16d7f;
       background-color: #ffffff;
       color: #f16d7f; }
-
-.catalog-terms-margin-block {
-  height: 110px; }
 
 .tearms {
   background-color: #222224;
@@ -1443,5 +1441,27 @@ a {
   margin-left: 32px; }
   .checkout__details-forgot-password-link:hover {
     color: #f16d7f; }
+
+.slides {
+  position: relative;
+  /*height: 300px; */
+  /*padding: 0px; */
+  /*margin: 0px; */
+  list-style-type: none; }
+
+.slide {
+  position: absolute;
+  left: 0;
+  top: 0;
+  /*width: 100%; */
+  /*height: 100%; */ }
+
+.product__image__center {
+  width: 597px;
+  margin: 0 auto; }
+
+.product__img {
+  width: 597px;
+  margin-top: -350px; }
 
 /*# sourceMappingURL=style.css.map */

@@ -182,6 +182,22 @@ Vue.component('products', {
                             </div>
                         </main>
                     </span>
+                    
+                    <!--отображаем третий вариант отрисовки каталога-->
+                    <span v-if="catalogType === 3">
+                        <div class="also-like container">
+                            <p class="also-like__head">you may like also</p>
+                            <div class="also-like__products">
+
+                              <product
+                                 v-for="product of filtered"
+                                 :key="product.id_product"
+                                 :product="product"
+                                 :product-type=1></product>                   
+                            </div>
+                        </div>
+
+                    </span>
                </span>`
 });
 
@@ -189,7 +205,7 @@ Vue.component('product', {
     props: ['product', 'productType'],
 
     template: `<div class="product-mini">
-                    <a class="product-mini__link" href="#">
+                    <a class="product-mini__link" :href="'/single_page.html?id_product='+product.id_product">
                         <img class="product-mini__img" :src="product.imgM" :alt="'img'+product.name">
                     </a>
                     <div class="product-mini__text"><a class="product-mini__link" href="#">

@@ -10,8 +10,10 @@
     "type": "git",
     "url": "git+https://github.com/dkosinov/study_project_01.git"
   },
-  "nodemonConfig" : {
-    "ignore": ["*.json"]
+  "nodemonConfig": {
+    "ignore": [
+      "*.json"
+    ]
   },
   "keywords": [],
   "author": "",
@@ -22,6 +24,7 @@
   "homepage": "https://github.com/dkosinov/study_project_01#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "moment": "^2.24.0"
+    "moment": "^2.24.0",
+    "qs": "^6.7.0"
   }
 }
