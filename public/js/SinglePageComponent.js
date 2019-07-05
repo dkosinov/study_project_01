@@ -2,6 +2,7 @@ Vue.component('singlePage', {
     data(){
         return {
             product: {},
+            quantity: 1,
             // slidesFiles : [],
             currentSlideNumber : 0,
         }
@@ -34,7 +35,31 @@ Vue.component('singlePage', {
             })
 
             return response.length > 1 ? response : response[0];
-        }
+        },
+        checkQuantityOnChange(){
+            const inputQuantityPrev = this.quantity;
+            $inputNode = document.querySelector('.product__input-quantity');
+            const inputQuantityNew = $inputNode.value;
+            console.log("Старое значение = " + inputQuantityPrev);
+            console.log("Новое значение = " + inputQuantityNew);
+
+            const regexp = /\D/;
+            if (!regexp.test(inputQuantityNew) && inputQuantityNew !== '' && +inputQuantityNew !== 0){
+                console.log(inputQuantityNew + ' True');
+                // if (+inputQuantityNew === 0) {
+                //     $inputNode.value = '';
+                    // console.log('Удаляем товар из корзины')
+                //     this.$parent.removeProductFromCart(this.cartItem);
+                // } else {
+                    //измепняем количество на новое
+                    console.log("Устанавливаем новое значение = " + inputQuantityNew);
+                    // this.$parent.changeProductQuantity(this.cartItem, inputQuantityNew);
+                // }
+            } else {
+                console.log(inputQuantityNew + ' False');
+                $inputNode.value = inputQuantityPrev;
+            }
+        },
     },
     mounted(){
         console.log(location.search);
@@ -89,24 +114,28 @@ Vue.component('singlePage', {
                                 <p class="product__product-details-material">MATERIAL: <span>COTTON</span></p>
                                 <p class="product__product-details-designer">DESIGNER: <span>BINBURHAN</span></p>
                             </div>
-                            <div class="product__product-price">$561</div>
+                            <div class="product__product-price">$ {{product.price}}</div>
                             <div class="product__price-line"></div>
                             <div class="product__select-group">
                                 <div class="product__select-color">
                                     <p class="product__input-title">CHOOSE COLOR</p>
                                     <select name="" id="" class="product__input product__input-color">
-                                        <option value="red">Red</option>
+                                        <option :value="product.color">{{product.color}}</option>
                                     </select>
                                 </div>
                                 <div class="product__select-size">
                                     <p class="product__input-title">CHOOSE SIZE</p>
                                     <select name="" id="" class="product__input product__input-size">
-                                        <option value="red">XXL</option>
+                                        <option :value="product.size">{{product.size}}</option>
                                     </select>
                                 </div>
                                 <div class="product__select-quantity">
                                     <p class="product__input-title">QUANTITY</p>
-                                    <input type="text" class="product__input product__input-quantity" placeholder="2">
+                                    <input 
+                                        type="text" 
+                                        class="product__input product__input-quantity" 
+                                        placeholder="1"
+                                        @change="checkQuantityOnChange()">
                                 </div>
                             </div>
                             <a href="#" class="product__add-to-cart-button">

@@ -204,38 +204,6 @@ Vue.component('cart-item-large', {
             // inputQuantity: 0,
         }
     },
-    // computed: {
-    //     InputQuantity: function ()  {
-    //         this.inputQuantity = 555;
-    //         // this.inputQuantity = this.cartItem.quantity;
-    //     },
-    // },
-    mounted(){
-        // this.inputQuantity = this.cartItem.quantity;
-    },
-    watch: {
-        // inputQuantity : function(){
-        //     let quantity = this.inputQuantity;
-        //     //Проверим что введено и изменим
-        //     console.log('inputQuantity=' + this.inputQuantity + ' quantity=' + quantity +' this.cartItem.quantity=' + this.cartItem.quantity);
-        //     if (isNaN(+quantity)) {
-        //         console.log('NaN');
-        //         this.inputQuantity = this.cartItem.quantity;
-        //     }   else if (quantity < 0){
-        //         //если отрицательное количество товара, сохраняем текущее
-        //         this.inputQuantity = this.cartItem.quantity;
-        //     } else if (+quantity === 0) {
-        //         //если 0 то удаляем товар из корзины
-        //         // this.$parent.removeProductFromCart(this.cartItem);
-        //         // this.inputQuantity = this.cartItem.quantity;
-        //     } else {
-        //         // this.inputQuantity = quantity;
-        //     }
-        //     console.log('inputQuantity=' + this.inputQuantity + ' quantity=' + quantity +' this.cartItem.quantity=' + this.cartItem.quantity);
-    //
-    //     },
-    },
-
     methods: {
         getItemTotalSum(){
             //вернём стоимость всех единиц данного товара
@@ -248,8 +216,10 @@ Vue.component('cart-item-large', {
 
         checkQuantityOnChange(){
             const inputQuantityPrev = this.cartItem.quantity;
-            $inputNode = document.querySelector('.cart__product-quantity-input');
+            $inputNode = document.getElementById(this.cartItem.id_product);
             const inputQuantityNew = $inputNode.value;
+            console.log("node.id = " + $inputNode.id);
+            console.log("id_product = " + this.cartItem.id_product);
             console.log("Старое значение = " + inputQuantityPrev);
             console.log("Новое значение = " + inputQuantityNew);
 
@@ -268,27 +238,6 @@ Vue.component('cart-item-large', {
                 console.log(inputQuantityNew + ' False');
                 $inputNode.value = inputQuantityPrev;
             }
-            // const regexp = /\D/;
-            // if (!regexp.test(this.inputQuantity) && this.inputQuantity !== ''){
-            //     console.log(this.inputQuantity + ' True');
-            //     if (+this.inputQuantity === 0) {
-            //         this.$parent.removeProductFromCart(this.cartItem);
-            //     } else {
-            //         //измепняем количество
-            //     }
-            // } else {
-            //     console.log(this.inputQuantity + ' False');
-            //     this.inputQuantity = this.cartItem.quantity;
-            // }
-            // if (this.inputQuantity)
-            // if (isNaN(+this.inputQuantity)) {
-            //     this.inputQuantity = this.cartItem.quantity;
-            // } else if (this.inputQuantity){
-            //     this.inputQuantity = this.cartItem.quantity;
-            // } else if (+this.inputQuantity === 0) {
-            //     this.$parent.removeProductFromCart(this.cartItem);
-            //
-            // }
         },
     },
     template: `<div class="cart__item">
@@ -312,7 +261,7 @@ Vue.component('cart-item-large', {
                     </div>
                     <div class="cart__column-2 cart__product-price">$ {{cartItem.price}}</div>
                     <div class="cart__column-3 cart__product-quantity">
-                        <input type="text" class="cart__product-quantity-input"
+                        <input type="text" class="cart__product-quantity-input" :id="cartItem.id_product"
                             :value="cartItem.quantity"
                             @change="checkQuantityOnChange()">
                             <!--                            v-model.number="tempQuantity"-->
