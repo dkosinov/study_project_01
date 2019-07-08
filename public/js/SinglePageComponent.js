@@ -42,14 +42,18 @@ Vue.component('singlePage', {
 
             // пытаемся удалить товар из корзины
             // this.$root.$refs.pageHeader.$refs.cart.removeProductFromCart(this.product)
+            // }
             //     .then(data => {
             //         if(data.result){
             //             //товар найден и удалён
             //             console.log('товар найден и удалён');
             //         }
             //     })
-            //добавляем товар
-            // this.$root.$refs.pageHeader.$refs.cart.addOneProduct(this.product, this.product.quntity)
+            const quantityToAdd = +document.querySelector('.product__input-quantity').value;
+            if (quantityToAdd > 0){
+                //добавляем товар
+                this.$root.$refs.pageHeader.$refs.cart.addOneProduct(this.product, quantityToAdd)
+            }
             //     .then(data => {
             //         if(data.result){
             //             //товар добавлен
@@ -58,32 +62,32 @@ Vue.component('singlePage', {
             //     })
             //Обновляем количество товара если надо
 
-
+            //
             // this.$root.getJson(`/api/cart`)
             //     .then(data => {
             //         let find = data.contents.find(el => el.id_product === id_product);
             //         if (find){ //товар в корзине
             //             //Удаляем и добавляем вновь
-            //
+            //             console.log(find);
             //             if (this.product.quantity !== find.quantity) {
             //
             //             }
             //             this.product = Object.assign({},find);
             //             console.log(this.product);
             //         } else { //товара нет в корзине
-            //             this.$root.getJson(`/api/products/${id_product}`)
-            //                 .then(data => {
-            //                     console.log(data);
-            //                     // this.product = JSON.parse(data);
-            //                     this.product = data;
-            //                     console.log(this.product.imgL_arr);
-            //                     this.product = Object.assign(data, {quantity: 1});
-            //                     // this.slidesFiles=data.imgL_arr;
-            //                     // for (let file of this.slidesFiles) {
-            //                     //     console.log(file);
-            //                     // }
-            //                 })
-            //                 .catch(error => console.log('error'));
+            //             // this.$root.getJson(`/api/products/${id_product}`)
+            //             //     .then(data => {
+            //             //         console.log(data);
+            //             //         // this.product = JSON.parse(data);
+            //             //         this.product = data;
+            //             //         console.log(this.product.imgL_arr);
+            //             //         this.product = Object.assign(data, {quantity: 1});
+            //             //         // this.slidesFiles=data.imgL_arr;
+            //             //         // for (let file of this.slidesFiles) {
+            //             //         //     console.log(file);
+            //             //         // }
+            //             //     })
+            //             //     .catch(error => console.log('error'));
             //         }
             //
             //     });
@@ -91,11 +95,11 @@ Vue.component('singlePage', {
         checkQuantityOnChange(){
             // const inputQuantityPrev = this.cartItem.quantity;
 
-            const inputQuantityPrev = this.product.quantity;
+            // const inputQuantityPrev = this.product.quantity;
             $inputNode = document.querySelector('.product__input-quantity');
-            const inputQuantityNew = $inputNode.value;
-            console.log("Старое значение = " + inputQuantityPrev);
-            console.log("Новое значение = " + inputQuantityNew);
+            const inputQuantityNew = +$inputNode.value;
+            // console.log("Старое значение = " + inputQuantityPrev);
+            console.log("Добавить товаров = " + inputQuantityNew);
 
             if (!isNaN(inputQuantityNew) && inputQuantityNew > 0 ){
                 console.log(inputQuantityNew + ' True');
@@ -103,8 +107,8 @@ Vue.component('singlePage', {
                 this.product.quantity = inputQuantityNew;
             } else {
                 console.log(inputQuantityNew + ' False');
-                $inputNode.value = inputQuantityPrev;
-                this.product.quantity = inputQuantityPrev;
+                $inputNode.value = '';
+                // this.product.quantity = inputQuantityPrev;
 
             }
             // const regexp = /\D/;
@@ -134,7 +138,8 @@ Vue.component('singlePage', {
             .then(data => {
                 let find = data.contents.find(el => el.id_product === id_product);
                 if (find){ //товар в корзине
-                    this.product = Object.assign({},find);
+                    this.product = find;
+                    // this.product = Object.assign({},find);
                     console.log(this.product);
                 } else { //товара нет в корзине
                     this.$root.getJson(`/api/products/${id_product}`)
@@ -210,9 +215,8 @@ Vue.component('singlePage', {
                                     <input 
                                         type="text" 
                                         class="product__input product__input-quantity" 
-                                        :value="product.quantity"
                                         @change="checkQuantityOnChange()">
-                                        <!--                                        placeholder="1"-->
+                                        <!--         placeholder="1"      :value="quantityToAdd"                         -->
                                 </div>
                             </div>
                             <button class="product__add-to-cart-button" @click="addAndChangeCartProduct()">

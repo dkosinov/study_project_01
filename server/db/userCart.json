@@ -1,5 +1,22 @@
 {
-    "amount": 0,
-    "countGoods": 0,
-    "contents": []
+    "amount": 2184,
+    "countGoods": 28,
+    "contents": [
+        {
+            "quantity": 27,
+            "id_product": 6,
+            "name": "Rebox Zane",
+            "imgS": "img/product/product-10-S.jpg",
+            "imgM": "img/product/product-10-M.jpg",
+            "imgL_arr": [
+                "img/product/product-10-L.jpg",
+                "img/product/product-2.jpg",
+                "img/product/product-2.jpg"
+            ],
+            "rating": 2,
+            "color": "red",
+            "size": "XIi",
+            "price": 78
+        }
+    ]
 }

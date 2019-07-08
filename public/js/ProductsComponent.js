@@ -219,7 +219,7 @@ Vue.component('product', {
                     
                     <!--отображаем первый вариант отрисовки кнопок товара-->
                     <span v-if="productType === 1">
-                        <button class="add-to-cart" @click="$root.$refs.pageHeader.$refs.cart.addOneProduct(product, 1)">
+                        <button class="add-to-cart" @click="$root.$refs.pageHeader.$refs.cart.addOneProduct(product)">
                             <img class="add-to-cart__img" src="img/cart-2.svg" alt="cart">
                             Add to Cart
                         </button>
@@ -228,7 +228,7 @@ Vue.component('product', {
                     <!--отображаем второй вариант отрисовки кнопок товара-->
                     <span v-if="productType === 2">
                         <div class="add-to-cart add-to-cart_mod-3">
-                            <button class="add-to-cart_mod-3__button add-to-cart_mod-3__button_big" @click="$root.$refs.pageHeader.$refs.cart.addOneProduct(product, 1)"><img
+                            <button class="add-to-cart_mod-3__button add-to-cart_mod-3__button_big" @click="$root.$refs.pageHeader.$refs.cart.addOneProduct(product)"><img
                                     class="add-to-cart_mod-3__img" src="img/cart-2.svg" alt="catr">Add to Cart</button>
                             <button class="add-to-cart_mod-3__button"><img class="add-to-cart_mod-3__img"
                                                                                src="img/recicle.svg" alt="recicle"></button>

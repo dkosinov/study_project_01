@@ -5,7 +5,7 @@ Vue.component('cart', {
           // cartUrl: `/getBasket.json`,
           cartItems: [],
           countGoods: 0,
-          couponDiscount: 10,
+          couponDiscount: 0,
           showCart: false,
           // imgCart: `https://placehold.it/50x100`
       }
@@ -17,11 +17,13 @@ Vue.component('cart', {
                 this.$root.putJson(`/api/cart/${find.id_product}`, {quantity: quantity})
                     .then(data => {
                         if(data.result){
-                            find.quantity = quantity;
+                            find.quantity += quantity;
                         }
                     });
             } else {
                 let prod = Object.assign({quantity: quantity}, product);
+                console.log(prod.quantity);
+                console.log(quantity);
                 this.$root.postJson(`/api/cart`, prod)
                     .then(data => {
                         if(data.result){
@@ -58,6 +60,7 @@ Vue.component('cart', {
                 .then(data => {
                     if(data.result){
                         this.cartItems.splice(this.cartItems.indexOf(product), 1);
+                        return 1;
                     }
                 });
         },
@@ -289,7 +292,7 @@ Vue.component('cart-item-large', {
                     <div class="cart__column-4 cart__product-shipping">FREE</div>
                     <div class="cart__column-5 cart__product-subtotal">$ {{getItemTotalSum()}}</div>
                     <div class="cart__column-6 cart__product-action">
-                        <a href="#" class="cart__product-action-link">
+                        <a href="#" @click.prevent class="cart__product-action-link">
                             <i class="fas fa-times-circle" 
                                 @click="$parent.$parent.removeOneProduct(cartItem)"></i>
 <!--                                логично будет если кнопка в большой корзине будет делать то же что и в маленькой, удалять один товар-->
