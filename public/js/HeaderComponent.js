@@ -12,7 +12,7 @@ Vue.component('pageHeader', {
                                 <img class="logo__img" src="img/logo.png" alt="logo">
                                 BRAN<span class="logo__span _pink-text">D</span>
                             </a>
-                            <form class="header__search-form" action="#">
+                            <form class="header__search-form" action="#" @submit.prevent>
                                 <button class="header__button-browse">Browse
                                     <div class="header__drop-megamenu drop-megamenu">
                                         <div class="drop-megamenu__box">

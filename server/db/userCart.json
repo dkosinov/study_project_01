@@ -1,38 +1,22 @@
 {
-    "amount": 3405,
-    "countGoods": 43,
+    "amount": 52,
+    "countGoods": 1,
     "contents": [
         {
-            "quantity": 30,
-            "id_product": 6,
+            "quantity": 2,
+            "id_product": 1,
             "name": "Rebox Zane",
             "imgS": "img/product/product-10-S.jpg",
             "imgM": "img/product/product-10-M.jpg",
             "imgL_arr": [
                 "img/product/product-10-L.jpg",
-                "img/product/product-2.jpg",
-                "img/product/product-2.jpg"
-            ],
-            "rating": 2,
-            "color": "red",
-            "size": "XIi",
-            "price": 78
-        },
-        {
-            "quantity": 15,
-            "id_product": 2,
-            "name": "Rebox Zane",
-            "imgS": "img/product/product-15-S.jpg",
-            "imgM": "img/product/product-15-M.jpg",
-            "imgL_arr": [
                 "img/product/product-15-L.jpg",
-                "img/product/product-2.jpg",
                 "img/product/product-2.jpg"
             ],
-            "rating": 3,
+            "rating": 4,
             "color": "red",
             "size": "XIi",
-            "price": 85
+            "price": 52
         }
     ]
 }

@@ -1,7 +1,7 @@
 Vue.component('megamenu',{
     template: `<nav>
                     <ul class="menu">
-                        <li class="menu__list"><a href="#" class="menu__link  menu__link_active">Home</a>
+                        <li class="menu__list"><a href="#" class="menu__link  menu__link_active"><a href="index.html">Home</a></a>
                             <div class="drop-megamenu">
                                 <div class="drop-megamenu__box">
                                     <h3 class="drop-megamenu__header">Home</h3>

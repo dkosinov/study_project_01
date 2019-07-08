@@ -31,6 +31,10 @@ button
 
 ._red-text
 	color: $red_color
+	
+._flex-box
+	display: flex
+	align-items: center
 
 .container
 	width: 1140px
@@ -524,6 +528,8 @@ button
 		font-size: 13px
 		font-weight: 700
 		text-transform: uppercase
+		&:hover
+			color: $pink_color
 	
 	&__price
 		color: $pink_color
@@ -554,14 +560,17 @@ button
 	justify-content: center
 	align-items: center
 	visibility: hidden
-	transition: all ease-in-out .4s
+	//transition: all ease-in-out .4s
 	
 	&__img
 		margin-right: 8px
 	
 	&:hover
 		box-shadow: 0 0 5px #fff
-	
+		
+	&:active
+		box-shadow: none
+		
 	&_mod-3
 		border: none
 		width: 123px
@@ -593,6 +602,8 @@ button
 			
 			&:hover
 				box-shadow: 0 0 5px #fff
+			&:active
+				box-shadow: none
 			
 			&_big
 				width: 123px
@@ -802,7 +813,7 @@ button
 		letter-spacing: 0.35px
 		border: 1px solid $pink_color
 		cursor: pointer
-		transition: all ease-in-out .4s
+		//transition: all ease-in-out .4s
 		
 		&:hover
 			background: $pink_color - 25
@@ -1019,8 +1030,8 @@ button
 		line-height: 24px
 		text-transform: uppercase
 		
-		& span
-			color: #2f2f2f
+		//& span
+		//	color: #2f2f2f
 	
 	&__product-details-designer
 		margin-left: 44px
@@ -1315,6 +1326,18 @@ button
 		border-radius: 3px
 		border: 1px solid #ebebeb
 		background-color: #ffffff
+		color: #c4c4c4
+		display: flex
+		justify-content: space-around
+		align-items: center
+	
+	&__pagination-link
+		color: #c4c4c4
+		font-size: 16px
+		font-weight: bold
+		line-height: 26px
+		&:hover
+			color: $pink_color
 	
 	&__button-view-all
 		width: 150px
@@ -1521,6 +1544,9 @@ button
 		&:hover
 			border: 1px solid #f16d7f
 			color: #f16d7f
+		&:active
+			background-color: $pink_color
+			color: #ffffff
 	
 	&__details
 		margin-top: 63px
@@ -1612,7 +1638,9 @@ button
 			background-color: #f5f3f3
 			color: $pink_color
 			outline: solid 1px $pink_color
-
+		&:active
+			background-color: $pink_color
+			color: #ffffff
 
 .stars
 	display: flex
@@ -1726,6 +1754,9 @@ button
 			border: 1px solid $pink_color
 			color: $pink_color
 			cursor: pointer
+		&:active
+			background-color: $pink_color
+			color: #ffffff
 		
 		&_right
 			margin-top: 0
@@ -1786,6 +1817,7 @@ button
 //.showing
 //	opacity: 1
 //	z-index: 2
+
 .product__image__center
 	width: 597px
 	margin: 0 auto

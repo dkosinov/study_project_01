@@ -172,7 +172,26 @@ Vue.component('products', {
                                          :product-type=2></product>
                                   </div>
                                 <div class="catalog__bottom">
-                                    <div class="catalog__pagination">Pagination</div>
+                                    <div class="catalog__pagination">
+                                        <a href="#" class="catalog__pagination-link" @click.prevent>
+                                            <i class="fas fa-angle-left"></i>
+                                        </a>
+                                        <a href="#" class="catalog__pagination-link" @click.prevent>
+                                            <p class="_pink-text">1</p>
+                                        </a>
+                                        <a href="#" class="catalog__pagination-link" @click.prevent>2</a>
+                                        <a href="#" class="catalog__pagination-link" @click.prevent>3</a>
+                                        <a href="#" class="catalog__pagination-link" @click.prevent>4</a>
+                                        <a href="#" class="catalog__pagination-link" @click.prevent>5</a>
+                                        <div class="_flex-box">                                        
+                                            <a href="#" class="catalog__pagination-link" @click.prevent>6</a>
+                                            <p>.....</p>
+                                            <a href="#" class="catalog__pagination-link" @click.prevent>20</a>
+                                        </div>
+                                        <a href="#" class="catalog__pagination-link _pink-text" @click.prevent>
+                                            <i class="fas fa-angle-right _pink-text"></i>
+                                        </a>
+                                    </div>
                                     <button class="catalog__button-view-all"
                                             @click="setFilterRange()">
                                             View All
@@ -208,7 +227,7 @@ Vue.component('product', {
                         <img class="product-mini__img" :src="product.imgM" :alt="'img'+product.name">
                     </a>
                     <div class="product-mini__text">
-                        <a class="product-mini__link" href="#">
+                        <a class="product-mini__link" :href="'single_page.html?id_product='+product.id_product">
                             {{product.name}}
                         </a>
                         <p class="product-mini__price">

@@ -15,7 +15,7 @@ Vue.component('pageFooter',{
                         <ul class="footer__menu">
                             <p class="footer__menu-head">COMPANY</p>
                             <li class="footer__menu-list"><a href="index.html" class="footer__menu-link">Home</a></li>
-                            <li class="footer__menu-list"><a href="#" class="footer__menu-link">Shop</a></li>
+                            <li class="footer__menu-list"><a href="catalog.html" class="footer__menu-link">Shop</a></li>
                             <li class="footer__menu-list"><a href="#" class="footer__menu-link">About</a></li>
                             <li class="footer__menu-list"><a href="#" class="footer__menu-link">How It Works</a></li>
                             <li class="footer__menu-list"><a href="#" class="footer__menu-link">Contact</a></li>
@@ -30,11 +30,11 @@ Vue.component('pageFooter',{
                         </ul>
                         <ul class="footer__menu">
                             <p class="footer__menu-head">SHOP CATEGORY</p>
-                            <li class="footer__menu-list"><a href="#" class="footer__menu-link">Men</a></li>
-                            <li class="footer__menu-list"><a href="#" class="footer__menu-link">Women</a></li>
-                            <li class="footer__menu-list"><a href="#" class="footer__menu-link">Child</a></li>
-                            <li class="footer__menu-list"><a href="#" class="footer__menu-link">Apparel</a></li>
-                            <li class="footer__menu-list"><a href="#" class="footer__menu-link">Brows All</a></li>
+                            <li class="footer__menu-list"><a href="catalog.html" class="footer__menu-link">Men</a></li>
+                            <li class="footer__menu-list"><a href="catalog.html" class="footer__menu-link">Women</a></li>
+                            <li class="footer__menu-list"><a href="catalog.html" class="footer__menu-link">Child</a></li>
+                            <li class="footer__menu-list"><a href="catalog.html" class="footer__menu-link">Apparel</a></li>
+                            <li class="footer__menu-list"><a href="catalog.html" class="footer__menu-link">Brows All</a></li>
                         </ul>
                     </div>
                     <div class="footer__bottom">

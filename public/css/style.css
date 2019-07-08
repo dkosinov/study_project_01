@@ -21,6 +21,10 @@ button {
 ._red-text {
   color: #ff0d0d; }
 
+._flex-box {
+  display: flex;
+  align-items: center; }
+
 .container {
   width: 1140px;
   margin: 0 auto; }
@@ -431,6 +435,8 @@ button {
     font-size: 13px;
     font-weight: 700;
     text-transform: uppercase; }
+    .product-mini__link:hover {
+      color: #f16d7f; }
   .product-mini__price {
     color: #f16d7f;
     font-size: 16px;
@@ -457,12 +463,13 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  visibility: hidden;
-  transition: all ease-in-out 0.4s; }
+  visibility: hidden; }
   .add-to-cart__img {
     margin-right: 8px; }
   .add-to-cart:hover {
     box-shadow: 0 0 5px #fff; }
+  .add-to-cart:active {
+    box-shadow: none; }
   .add-to-cart_mod-3 {
     border: none;
     width: 123px;
@@ -491,6 +498,8 @@ button {
       align-items: center; }
       .add-to-cart_mod-3__button:hover {
         box-shadow: 0 0 5px #fff; }
+      .add-to-cart_mod-3__button:active {
+        box-shadow: none; }
       .add-to-cart_mod-3__button_big {
         width: 123px; }
 
@@ -662,8 +671,7 @@ button {
     font-weight: 400;
     letter-spacing: 0.35px;
     border: 1px solid #f16d7f;
-    cursor: pointer;
-    transition: all ease-in-out 0.4s; }
+    cursor: pointer; }
     .subscribe__email-button:hover {
       background: #d85466; }
     .subscribe__email-button:active {
@@ -846,8 +854,6 @@ button {
   font-weight: 700;
   line-height: 24px;
   text-transform: uppercase; }
-  .product__product-details span {
-    color: #2f2f2f; }
 .product__product-details-designer {
   margin-left: 44px; }
 .product__product-price {
@@ -1093,7 +1099,18 @@ button {
     height: 44px;
     border-radius: 3px;
     border: 1px solid #ebebeb;
-    background-color: #ffffff; }
+    background-color: #ffffff;
+    color: #c4c4c4;
+    display: flex;
+    justify-content: space-around;
+    align-items: center; }
+  .catalog__pagination-link {
+    color: #c4c4c4;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 26px; }
+    .catalog__pagination-link:hover {
+      color: #f16d7f; }
   .catalog__button-view-all {
     width: 150px;
     height: 44px;
@@ -1266,6 +1283,9 @@ button {
   .cart__button:hover {
     border: 1px solid #f16d7f;
     color: #f16d7f; }
+  .cart__button:active {
+    background-color: #f16d7f;
+    color: #ffffff; }
 .cart__details {
   margin-top: 63px;
   display: flex;
@@ -1342,6 +1362,9 @@ button {
     background-color: #f5f3f3;
     color: #f16d7f;
     outline: solid 1px #f16d7f; }
+  .cart__total-button:active {
+    background-color: #f16d7f;
+    color: #ffffff; }
 
 .stars {
   display: flex; }
@@ -1433,6 +1456,9 @@ button {
     border: 1px solid #f16d7f;
     color: #f16d7f;
     cursor: pointer; }
+  .checkout__details-btn:active {
+    background-color: #f16d7f;
+    color: #ffffff; }
   .checkout__details-btn_right {
     margin-top: 0; }
 .checkout__details-input-label {
