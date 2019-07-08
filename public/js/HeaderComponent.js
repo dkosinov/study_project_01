@@ -1,9 +1,10 @@
 Vue.component('pageHeader', {
-    data(){
-        return {
-            showCart: false
-        }
-    },
+    props: ['isCartInHeader'],
+    // data(){
+    //     return {
+    //
+    //     }
+    // },
     template: `<div class="header">
                     <div class="container header-container">
                         <div class="header__content-left">
@@ -45,10 +46,8 @@ Vue.component('pageHeader', {
                                 </button>
                             </form>
                         </div>
-                        <div class="header__content-right">
-                            <img class="header__cart-img" src="img/cart.svg" alt="cart">
-                            <button class="header__button-link" type="button" @click="showCart = !showCart">My Account</button>
-                        </div>
+                        <!--Отрисовываем компонент карзины Тип 1: маленькая выпадающая корзина-->
+                        <cart ref="cart" :cart-type="1" v-if="isCartInHeader"></cart>
                     </div>
                 </div>`
 })

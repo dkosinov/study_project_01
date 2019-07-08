@@ -173,11 +173,10 @@ Vue.component('products', {
                                   </div>
                                 <div class="catalog__bottom">
                                     <div class="catalog__pagination">Pagination</div>
-                                    <a href="#" class="catalog__view-all-link">
-                                        <div class="catalog__button-view-all"
-                                            @click="setFilterRange()"
-                                            >View All</div>
-                                    </a>
+                                    <button class="catalog__button-view-all"
+                                            @click="setFilterRange()">
+                                            View All
+                                    </button>                                
                                 </div>
                             </div>
                         </main>
@@ -205,33 +204,36 @@ Vue.component('product', {
     props: ['product', 'productType'],
 
     template: `<div class="product-mini">
-                    <a class="product-mini__link" :href="'/single_page.html?id_product='+product.id_product">
+                    <a class="product-mini__link" :href="'single_page.html?id_product='+product.id_product">
                         <img class="product-mini__img" :src="product.imgM" :alt="'img'+product.name">
                     </a>
-                    <div class="product-mini__text"><a class="product-mini__link" href="#">
-                        {{product.name}}
-                    </a>
-                        <p class="product-mini__price"> $ {{product.price.toFixed(2)}} </p>
+                    <div class="product-mini__text">
+                        <a class="product-mini__link" href="#">
+                            {{product.name}}
+                        </a>
+                        <p class="product-mini__price">
+                            $ {{product.price.toFixed(2)}}
+                        </p>
                         <div class="product-mini__stars stars" v-html="$root.getProductRatingHTML(product.rating)"></div>
                     </div>
                     
                     <!--отображаем первый вариант отрисовки кнопок товара-->
                     <span v-if="productType === 1">
-                        <a href="#" class="add-to-cart-1 add-to-cart" @click="$root.$refs.cart.addOneProduct(product)">
+                        <button class="add-to-cart" @click="$root.$refs.pageHeader.$refs.cart.addOneProduct(product, 1)">
                             <img class="add-to-cart__img" src="img/cart-2.svg" alt="cart">
                             Add to Cart
-                        </a>
+                        </button>
                     </span>
                     
                     <!--отображаем второй вариант отрисовки кнопок товара-->
                     <span v-if="productType === 2">
                         <div class="add-to-cart add-to-cart_mod-3">
-                            <a href="#" class="add-to-cart_mod-3__button add-to-cart_mod-3__button_big" @click="$root.$refs.cart.addOneProduct(product)"><img
-                                    class="add-to-cart_mod-3__img" src="img/cart-2.svg" alt="catr">Add to Cart</a>
-                            <a href="#" class="add-to-cart_mod-3__button"><img class="add-to-cart_mod-3__img"
-                                                                               src="img/recicle.svg" alt="recicle"></a>
-                            <a href="#" class="add-to-cart_mod-3__button"><img class="add-to-cart_mod-3__img" src="img/hard.svg"
-                                                                               alt="hard"></a>
+                            <button class="add-to-cart_mod-3__button add-to-cart_mod-3__button_big" @click="$root.$refs.pageHeader.$refs.cart.addOneProduct(product, 1)"><img
+                                    class="add-to-cart_mod-3__img" src="img/cart-2.svg" alt="catr">Add to Cart</button>
+                            <button class="add-to-cart_mod-3__button"><img class="add-to-cart_mod-3__img"
+                                                                               src="img/recicle.svg" alt="recicle"></button>
+                            <button class="add-to-cart_mod-3__button"><img class="add-to-cart_mod-3__img" src="img/hard.svg"
+                                                                               alt="hard"></button>
                         </div>
                     </span>
                 </div>`

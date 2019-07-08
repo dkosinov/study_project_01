@@ -22,6 +22,9 @@ select:focus
 
 a
 	text-decoration: none
+	
+button
+	cursor: pointer
 
 ._pink-text
 	color: $pink_color
@@ -156,6 +159,7 @@ a
 		display: flex
 		align-items: center
 		position: relative
+		height: 100%
 		cursor: pointer
 		
 		//&:hover .header__drop-cart
@@ -173,6 +177,18 @@ a
 		width: 41px
 		margin-right: 22px
 	
+	&__cart-amount
+		width: 30px
+		height: 30px
+		border-radius: 15px
+		text-align: center
+		font-size: 15px
+		line-height: 30px
+		background-color: #f16d7f
+		color: #ffffff
+		position: absolute
+		left: 26px
+		top: 22px
 	
 	&__button-link
 		background-color: $pink_color
@@ -330,6 +346,7 @@ a
 	position: absolute
 	top: 48px
 	left: -5px
+	z-index: 5
 	
 	&:before
 		content: ""
@@ -527,6 +544,7 @@ a
 	border: 1px solid #ffffff
 	border-radius: 3px
 	color: #ffffff
+	background: transparent 0
 	font-size: 13px
 	font-weight: 700
 	position: absolute
@@ -566,6 +584,7 @@ a
 			border: 1px solid #ffffff
 			border-radius: 3px
 			color: #ffffff
+			background: transparent 0
 			font-size: 13px
 			font-weight: 700
 			display: flex
@@ -578,7 +597,7 @@ a
 			&_big
 				width: 123px
 
-
+				
 .fetured-items
 	padding-top: 100px
 	
@@ -1172,7 +1191,8 @@ a
 	
 	&__container
 		width: 848px
-		
+	margin-bottom: 110px
+	
 	
 	&__filter
 		height: 74px

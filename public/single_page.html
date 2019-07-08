@@ -15,10 +15,7 @@
 
 <div id="app">
     <!--Отрисовываем компонент заголовока на странице-->
-    <page-header ref="pageHeader"></page-header>
-
-    <!--Отрисовываем компонент карзины Тип 1: маленькая выпадающая корзина-->
-    <cart ref="cart" :cart-type="1"></cart>
+    <page-header ref="pageHeader" :is-cart-in-header="true"></page-header>
 
     <!--Отрисовываем компонент мегаменю-->
     <megamenu ref="megamenu"></megamenu>

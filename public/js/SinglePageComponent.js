@@ -2,7 +2,6 @@ Vue.component('singlePage', {
     data(){
         return {
             product: {},
-            quantity: 1,
             // slidesFiles : [],
             currentSlideNumber : 0,
         }
@@ -36,47 +35,124 @@ Vue.component('singlePage', {
 
             return response.length > 1 ? response : response[0];
         },
+        addAndChangeCartProduct (){
+            //Если товара в карзине нет, то добавляем. Меняем количество нового или существующего товара
+            // if
+            // this.$parent.changeProductQuantity(this.cartItem, inputQuantityNew);
+
+            // пытаемся удалить товар из корзины
+            // this.$root.$refs.pageHeader.$refs.cart.removeProductFromCart(this.product)
+            //     .then(data => {
+            //         if(data.result){
+            //             //товар найден и удалён
+            //             console.log('товар найден и удалён');
+            //         }
+            //     })
+            //добавляем товар
+            // this.$root.$refs.pageHeader.$refs.cart.addOneProduct(this.product, this.product.quntity)
+            //     .then(data => {
+            //         if(data.result){
+            //             //товар добавлен
+            //             console.log('товар добавлен');
+            //         }
+            //     })
+            //Обновляем количество товара если надо
+
+
+            // this.$root.getJson(`/api/cart`)
+            //     .then(data => {
+            //         let find = data.contents.find(el => el.id_product === id_product);
+            //         if (find){ //товар в корзине
+            //             //Удаляем и добавляем вновь
+            //
+            //             if (this.product.quantity !== find.quantity) {
+            //
+            //             }
+            //             this.product = Object.assign({},find);
+            //             console.log(this.product);
+            //         } else { //товара нет в корзине
+            //             this.$root.getJson(`/api/products/${id_product}`)
+            //                 .then(data => {
+            //                     console.log(data);
+            //                     // this.product = JSON.parse(data);
+            //                     this.product = data;
+            //                     console.log(this.product.imgL_arr);
+            //                     this.product = Object.assign(data, {quantity: 1});
+            //                     // this.slidesFiles=data.imgL_arr;
+            //                     // for (let file of this.slidesFiles) {
+            //                     //     console.log(file);
+            //                     // }
+            //                 })
+            //                 .catch(error => console.log('error'));
+            //         }
+            //
+            //     });
+        },
         checkQuantityOnChange(){
-            const inputQuantityPrev = this.quantity;
+            // const inputQuantityPrev = this.cartItem.quantity;
+
+            const inputQuantityPrev = this.product.quantity;
             $inputNode = document.querySelector('.product__input-quantity');
             const inputQuantityNew = $inputNode.value;
             console.log("Старое значение = " + inputQuantityPrev);
             console.log("Новое значение = " + inputQuantityNew);
 
-            const regexp = /\D/;
-            if (!regexp.test(inputQuantityNew) && inputQuantityNew !== '' && +inputQuantityNew !== 0){
+            if (!isNaN(inputQuantityNew) && inputQuantityNew > 0 ){
                 console.log(inputQuantityNew + ' True');
-                // if (+inputQuantityNew === 0) {
-                //     $inputNode.value = '';
-                    // console.log('Удаляем товар из корзины')
-                //     this.$parent.removeProductFromCart(this.cartItem);
-                // } else {
-                    //измепняем количество на новое
-                    console.log("Устанавливаем новое значение = " + inputQuantityNew);
-                    // this.$parent.changeProductQuantity(this.cartItem, inputQuantityNew);
-                // }
+                console.log("Устанавливаем новое значение = " + inputQuantityNew);
+                this.product.quantity = inputQuantityNew;
             } else {
                 console.log(inputQuantityNew + ' False');
                 $inputNode.value = inputQuantityPrev;
+                this.product.quantity = inputQuantityPrev;
+
             }
+            // const regexp = /\D/;
+            // if (!regexp.test(inputQuantityNew) && inputQuantityNew !== '' && +inputQuantityNew !== 0){
+            //     console.log(inputQuantityNew + ' True');
+            //     // if (+inputQuantityNew === 0) {
+            //     //     $inputNode.value = '';
+            //         // console.log('Удаляем товар из корзины')
+            //     //     this.$parent.removeProductFromCart(this.cartItem);
+            //     // } else {
+            //         //измепняем количество на новое
+            //         console.log("Устанавливаем новое значение = " + inputQuantityNew);
+            //         // this.$parent.changeProductQuantity(this.cartItem, inputQuantityNew);
+            //     // }
+            // } else {
+            //     console.log(inputQuantityNew + ' False');
+            //     $inputNode.value = inputQuantityPrev;
+            // }
         },
     },
     mounted(){
         console.log(location.search);
         let id_product = this.getQueryParam('id_product');
         console.log(id_product);
-        this.$root.getJson(`/api/products/${id_product}`)
+        // проверяем есть ли уже этот товар в карзине
+        this.$root.getJson(`/api/cart`)
             .then(data => {
-                console.log(data);
-                // this.product = JSON.parse(data);
-                this.product = data;
-                console.log(this.product.imgL_arr);
-                // this.slidesFiles=data.imgL_arr;
-                // for (let file of this.slidesFiles) {
-                //     console.log(file);
-                // }
-            })
-            .catch(error => console.log('error'));
+                let find = data.contents.find(el => el.id_product === id_product);
+                if (find){ //товар в корзине
+                    this.product = Object.assign({},find);
+                    console.log(this.product);
+                } else { //товара нет в корзине
+                    this.$root.getJson(`/api/products/${id_product}`)
+                        .then(data => {
+                            console.log(data);
+                            // this.product = JSON.parse(data);
+                            this.product = data;
+                            console.log(this.product.imgL_arr);
+                            this.product = Object.assign(data, {quantity: 1});
+                            // this.slidesFiles=data.imgL_arr;
+                            // for (let file of this.slidesFiles) {
+                            //     console.log(file);
+                            // }
+                        })
+                        .catch(error => console.log('error'));
+                }
+
+            });
 
     },
     template: `<main class="product">
@@ -134,13 +210,14 @@ Vue.component('singlePage', {
                                     <input 
                                         type="text" 
                                         class="product__input product__input-quantity" 
-                                        placeholder="1"
+                                        :value="product.quantity"
                                         @change="checkQuantityOnChange()">
+                                        <!--                                        placeholder="1"-->
                                 </div>
                             </div>
-                            <a href="#" class="product__add-to-cart-button">
+                            <button class="product__add-to-cart-button" @click="addAndChangeCartProduct()">
                                 <div class="product__add-to-cart-img"></div>
-                                <p>Add to Cart</p></a>
+                                <p>Add to Cart</p></button>
                         </div>
                     </div>
                 </main>`
