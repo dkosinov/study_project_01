@@ -141,7 +141,7 @@ Vue.component('cart-type-small', {
                             <p class="drop-cart__total-summ">$ {{$parent.getCartTotalSum()}}</p>
                         </div>
                         <span v-if="$parent.cartItems.length">
-                            <a href="#" class="drop-cart__button">Checkout</a>
+                            <a href="checkout.html" class="drop-cart__button">Checkout</a>
                             <a href="shopping_cart.html" class="drop-cart__button">Go to cart</a>
                         </span>
                     </div>
@@ -189,7 +189,7 @@ Vue.component('cart-type-large', {
                             <div class="cart__total">
                                 <p class="cart__total-subtotal">Sub total <span>$ {{$parent.getCartTotalSum()}}</span></p>
                                 <p class="cart__total-grandtotal">grand total <span class="_pink-text">$ {{$parent.getGrandTotal()}}</span></p>
-                                <a href="#" class="cart__total-button">proceed to checkout</a>
+                                <a href="checkout.html" class="cart__total-button">proceed to checkout</a>
                             </div>
                         </div>
                         <a href="" class="cart__button cart__button_small">get a quote</a>
