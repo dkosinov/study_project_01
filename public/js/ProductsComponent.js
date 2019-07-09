@@ -4,6 +4,8 @@ Vue.component('products', {
       return {
           products: [],
           filtered: [],
+          minPrice: 0,
+          maxPrice: 100,
           // imgCatalog: `https://placehold.it/200x150`,
       }
     },
@@ -147,7 +149,20 @@ Vue.component('products', {
                                     </div>
                                     <div class="catalog__filter-box">
                                         <div class="catalog__filter-title">PRICE</div>
-                                        <div class="catalog__filter-group">диапазон цены</div>
+                                        <div class="catalog__filter-group">
+                                            С этим пока не разобрался
+<!--                                            <div class="multirange">-->
+<!--                                                <div class="multirange__input-group">-->
+<!--                                                    <input class="multirange__input" :min="minPrice" :max="maxPrice" value="25" type="range"/>-->
+<!--                                                    <input class="multirange__input" :min="minPrice" :max="maxPrice" value="75" type="range"/>-->
+<!--                                                </div>-->
+<!--                                                <div class="multirange__lable-group">-->
+<!--                                                    <lable class="multirange__lable">$52</lable>-->
+<!--                                                    <lable class="multirange__lable">$400</lable>-->
+<!--                                                </div>-->
+<!--                                                -->
+<!--                                            </div>-->
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="catalog__view">

@@ -4,8 +4,8 @@ Vue.component('breadcrumbs',{
                         <h1 class="breadcrumb__product-group-name">New Arrivals </h1>
                         <nav class="breadcrumb__menu">
                             <a href="index.html" class="breadcrumb__link">Home/</a>
-                            <a href="#" class="breadcrumb__link">MAN/</a>
-                            <span class="breadcrumb__active">New Arrivals</span>
+                            <a href="catalog.html" class="breadcrumb__link">MAN/</a>
+                            <a href="catalog.html" class="breadcrumb__active" @click.prevent>New Arrivals</a>
                         </nav>
                     </div>
                 </div>`

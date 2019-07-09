@@ -41,11 +41,11 @@ Vue.component('pageFooter',{
                         <div class="container footer__bottom-content">
                             <div class="footer__copyright"> &copy; 2017 Brand All Rights Reserved.</div>
                             <div class="footer__sn-links">
-                                <a href="#" class="footer__sn-link"><i class="fab fa-facebook-f"></i></a>
-                                <a href="#" class="footer__sn-link"><i class="fab fa-twitter"></i></a>
-                                <a href="#" class="footer__sn-link"><i class="fab fa-linkedin-in"></i></a>
-                                <a href="#" class="footer__sn-link"><i class="fab fa-pinterest-p"></i></a>
-                                <a href="#" class="footer__sn-link"><i class="fab fa-google-plus-g"></i></a>
+                                <a href="https://www.facebook.com/" class="footer__sn-link"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://twitter.com/" class="footer__sn-link"><i class="fab fa-twitter"></i></a>
+                                <a href="www.linkedin.cn" class="footer__sn-link"><i class="fab fa-linkedin-in"></i></a>
+                                <a href="https://www.pinterest.ru/" class="footer__sn-link"><i class="fab fa-pinterest-p"></i></a>
+                                <a href="https://plus.google.com/" class="footer__sn-link"><i class="fab fa-google-plus-g"></i></a>
                             </div>
                         </div>
                     </div>

@@ -47,7 +47,7 @@ Vue.component('megamenu',{
                                 </div>
                             </div>
                         </li>
-                        <li class="menu__list"><a href="#" class="menu__link">Man</a>
+                        <li class="menu__list"><a href="catalog.html" class="menu__link">Man</a>
                             <div class="drop-megamenu">
                                 <div class="drop-megamenu__box">
                                     <h3 class="drop-megamenu__header">Man</h3>
@@ -93,7 +93,7 @@ Vue.component('megamenu',{
                                 </div>
                             </div>
                         </li>
-                        <li class="menu__list"><a href="#" class="menu__link">Women</a>
+                        <li class="menu__list"><a href="catalog.html" class="menu__link">Women</a>
                             <div class="drop-megamenu">
                                 <div class="drop-megamenu__box">
                                     <h3 class="drop-megamenu__header">Women</h3>
@@ -139,7 +139,7 @@ Vue.component('megamenu',{
                                 </div>
                             </div>
                         </li>
-                        <li class="menu__list"><a href="#" class="menu__link">Kids</a>
+                        <li class="menu__list"><a href="catalog.html" class="menu__link">Kids</a>
                             <div class="drop-megamenu">
                                 <div class="drop-megamenu__box">
                                     <h3 class="drop-megamenu__header">Kids</h3>
@@ -185,7 +185,7 @@ Vue.component('megamenu',{
                                 </div>
                             </div>
                         </li>
-                        <li class="menu__list"><a href="#" class="menu__link">Accoseriese</a>
+                        <li class="menu__list"><a href="catalog.html" class="menu__link">Accoseriese</a>
                             <div class="drop-megamenu drop-megamenu_left">
                                 <div class="drop-megamenu__box">
                                     <h3 class="drop-megamenu__header">Accoseriese</h3>
@@ -231,7 +231,7 @@ Vue.component('megamenu',{
                                 </div>
                             </div>
                         </li>
-                        <li class="menu__list"><a href="#" class="menu__link">Featured</a>
+                        <li class="menu__list"><a href="catalog.html" class="menu__link">Featured</a>
                             <div class="drop-megamenu drop-megamenu_left">
                                 <div class="drop-megamenu__box">
                                     <h3 class="drop-megamenu__header">Featured</h3>
@@ -277,7 +277,7 @@ Vue.component('megamenu',{
                                 </div>
                             </div>
                         </li>
-                        <li class="menu__list"><a href="#" class="menu__link">Hot Deals</a>
+                        <li class="menu__list"><a href="catalog.html" class="menu__link">Hot Deals</a>
                             <div class="drop-megamenu drop-megamenu_left">
                                 <div class="drop-megamenu__box">
                                     <h3 class="drop-megamenu__header">Hot Deals</h3>
