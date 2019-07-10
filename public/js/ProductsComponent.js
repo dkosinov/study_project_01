@@ -68,6 +68,9 @@ Vue.component('products', {
         },
         getProductsRange(_filterRange=this.products.length, start=0){
             return this.products.slice(start, _filterRange);
+        },
+        viewAllProductsInContainer(){
+            this.filtered = this.getProductsRange();
         }
     },
     // computed: {
@@ -260,7 +263,7 @@ Vue.component('products', {
                                         </a>
                                     </div>
                                     <button class="catalog__button-view-all"
-                                            @click="setFilterRange()">
+                                            @click="viewAllProductsInContainer()">
                                             View All
                                     </button>                                
                                 </div>

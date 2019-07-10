@@ -19,6 +19,7 @@
 		height: 14px;
 		border-radius: 7px;
 		background-color: #f16d7f;
+        cursor: pointer;
 	}
 
 	input[type="range"].multirange.original {
