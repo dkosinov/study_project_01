@@ -4,21 +4,77 @@ Vue.component('products', {
       return {
           products: [],
           filtered: [],
-          minPrice: 0,
-          maxPrice: 100,
+          productsViewInContainer: [],
+          lowPrice: 0,
+          highPrice: 100,
           // imgCatalog: `https://placehold.it/200x150`,
       }
     },
+
     methods: {
         // filter(value){
         //     let regexp = new RegExp(value, 'i');
         //     this.filtered = this.products.filter(el => regexp.test(el.product_name));
         // }
         //Устанавливаем диапазон товаров для выдачи в каталог По умолчанию выдаём все
-        setFilterRange(_filterRange=this.products.length, start=0){
-            this.filtered = this.products.slice(start, _filterRange);
+        getPriceRange () {
+            let $multirange = document.querySelector('.original');
+            this.lowPrice = $multirange.valueLow;
+            this.highPrice = $multirange.valueHigh;
+            // console.log($multirange.value);
+            // console.log($multirange.valueLow);
+            // console.log($multirange.valueHigh);
+        },
+        setCatalogViewFilters (poductsNumberToView) {
+            // Ограничиваем количество отображаемых товаров
+            this.filtered = this.getProductsRange(poductsNumberToView);
+            //добавляем на странице фильтр по цене и устанавливаем максимальное и минимальное значения передваемого диапазона товаров
+            this.createPriceRangeFilter(this.products);
+        },
+        createPriceRangeFilter (products){
+            // находим минимльное и максимальное значение цен товаров каталога products
+            let minPrice = products[0].price;
+            let maxPrice = 0;
+            for(let el of products){
+                if (el.price < minPrice){
+                    minPrice = el.price;
+                }
+                if (el.price > maxPrice){
+                    maxPrice = el.price;
+                }
+            }
+            let $priceRangeContainer = document.getElementById('price-range-container');
+            let $priceRangeInput = document.createElement("input");
+            let multiple = document.createAttribute("multiple");
+            $priceRangeInput.setAttributeNode(multiple);
+            $priceRangeInput.type = "range";
+
+            $priceRangeInput.min = minPrice;
+            $priceRangeInput.max = maxPrice;
+
+            let multiValue = document.createAttribute("value");
+            multiValue.value = minPrice+","+maxPrice;
+            // multiValue.value = "25,75";
+            $priceRangeInput.setAttributeNode(multiValue);
+
+            // $priceRangeContainer.insertBefore($priceRangeInput, $priceRangeContainer.firstChild);
+            $priceRangeContainer.appendChild($priceRangeInput);
+
+            //передаём управление фильтром по цене внешнему модулю
+            const priceFilter = multirange($priceRangeInput);
+
+            this.lowPrice = minPrice;
+            this.highPrice = maxPrice;
+        },
+        getProductsRange(_filterRange=this.products.length, start=0){
+            return this.products.slice(start, _filterRange);
         }
     },
+    // computed: {
+    //     minPrice: function () {
+    //         return this.priceRange;
+    //     }
+    // },
     mounted(){
         this.$parent.getJson(`/api/products`)
             .then(data => {
@@ -26,7 +82,7 @@ Vue.component('products', {
                     this.products.push(el);
                     // this.filtered.push(el);
                 }
-                this.setFilterRange(this.filterRange);
+                this.setCatalogViewFilters(this.filterRange);
             });
     },
     template: `<span>
@@ -149,19 +205,15 @@ Vue.component('products', {
                                     </div>
                                     <div class="catalog__filter-box">
                                         <div class="catalog__filter-title">PRICE</div>
-                                        <div class="catalog__filter-group">
-                                            С этим пока не разобрался
-<!--                                            <div class="multirange">-->
-<!--                                                <div class="multirange__input-group">-->
-<!--                                                    <input class="multirange__input" :min="minPrice" :max="maxPrice" value="25" type="range"/>-->
-<!--                                                    <input class="multirange__input" :min="minPrice" :max="maxPrice" value="75" type="range"/>-->
-<!--                                                </div>-->
-<!--                                                <div class="multirange__lable-group">-->
-<!--                                                    <lable class="multirange__lable">$52</lable>-->
-<!--                                                    <lable class="multirange__lable">$400</lable>-->
-<!--                                                </div>-->
-<!--                                                -->
-<!--                                            </div>-->
+                                        <div class="price-filter" @click="getPriceRange()">
+                                            <div id="price-range-container" class="price-filter__input">
+                                                <!--сюда монтируется input multirange -->
+                                            </div>
+                                            <div class="price-filter__lables-group">
+                                                <div class="price-filter__lable">{{lowPrice}}</div>
+                                                <div class="price-filter__lable">{{highPrice}}</div>
+                                            </div>
+                                            
                                         </div>
                                     </div>
                                 </div>
